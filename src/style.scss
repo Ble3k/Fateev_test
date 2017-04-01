@@ -1,2 +1,303 @@
 @import "global_styles/index";
 
+//header
+
+header {
+  @include flex(center, center);
+  background-color: $loft-green;
+  height: 90px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  padding: 0 30px;
+}
+
+.header {
+  @include flex(center, space-between);
+  max-width: 1200px;
+  width: 100%;
+}
+
+.header__user {
+  @include flex(center);
+}
+
+.header__user__info {
+  @include flex(flex-start, center, column, nowrap);
+  margin-left: 20px;
+}
+
+.header__user__name {
+  @include text(1.33, 21.3px);
+}
+
+.header__user__mail {
+  @include text(2, 14.2px);
+  opacity: .7;
+}
+
+.header__btns-block {
+  @include flex(center, flex-start);
+}
+
+.header__svg-container {
+  @include flex(center, center);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.header__link:not(:last-child) {
+  margin-right: 20px;
+}
+
+.header__svg-container svg {
+  @include svg($loft-white);
+  opacity: .8;
+}
+
+.header__svg-container:hover svg {
+  opacity: 1;
+}
+
+// main
+  // about
+.about-block {
+  @include flex(center, center, column, nowrap);
+  background-color: $loft-white;
+  padding: 75px;
+}
+
+.about-block__title {
+  @include text(1, 42px, $loft-textBlack);
+  margin-bottom: 20px;
+}
+
+.about-block__p-text {
+  @include text(1.33, 20px, $loft-textGray);
+  margin-bottom: 40px;
+}
+
+.about-block__content {
+  @include flex(flex-start, center);
+}
+
+.about-block__about-me,
+.about-block__my-experience  {
+  @include flex();
+}
+
+.about-block__my-experience {
+  margin-left: 45px;
+}
+
+.about-block__about-me__container,
+.about-block__my-experience__container {
+  @include flex(flex-start, flex-start, column, nowrap);
+  margin-left: 20px;
+}
+
+.about-block__about-me__title,
+.about-block__my-experience__title {
+  @include text(1.33, 21px, $loft-textBlack, 500, left);
+  margin-bottom: 18px;
+}
+
+.about-block__about-me__p-text,
+.about-block__my-experience__p-text {
+  @include text(1.5, 14px, $loft-textGray, 500, left);
+  max-width: 275px;
+}
+
+.about-block__about-me__link {
+  @extend .about-block__about-me__p-text;
+  color: $loft-blue;
+  text-decoration: underline;
+}
+
+  // courses
+
+.courses {
+  @include flex(center, center, column, nowrap);
+  padding: 80px;
+  padding-bottom: 60px;
+  background: url('/static/images/gplaypattern.png') repeat;
+  flex-grow: 1;
+}
+
+.courses__title {
+  @include text(1, 42px, $loft-textBlack);
+  margin-bottom: 20px;
+}
+
+.courses__p-text {
+  @include text(1.33, 20px, $loft-textGray);
+  margin-bottom: 45px;
+}
+
+.courses__content {
+  @include flex(flex-start, flex-start);
+  width: 100%;
+  max-width: 940px;
+}
+
+.courses__course {
+  @include flex(stretch, flex-start, column, nowrap);
+  margin: 0 20px 20px 0;
+  width: 300px;
+  cursor: pointer;
+  position: relative;
+}
+
+.courses__course:nth-child(3),
+.courses__course:nth-child(6) {
+  margin-right: 0;
+}
+
+.courses__course__main-img,
+.courses__course__main-img img {
+  height: 170px;
+}
+
+.courses__course__content {
+  @include flex(flex-start, flex-start, column, nowrap);
+  background-color: $loft-white;
+  padding: 20px;
+}
+
+.courses__course__title {
+  @include text(1.14, 21px, $loft-textBlack, 500, left);
+  margin-bottom: 15px;
+}
+
+.courses__course__description {
+  @include text(1.5, 14px, $loft-textGray, 500, left);
+  margin-bottom: 15px;
+}
+
+.courses__course__duration-container {
+  @include flex(center);
+}
+
+.courses__course__duration-svg-container {
+  @include flex(center, center);
+  margin-right: 5px;
+  width: 14px;
+  height: 14px;
+}
+
+.courses__course__duration-svg-container svg {
+  @include svg($loft-textGray);
+}
+
+.courses__course__duration {
+  @include text(1.5, 14px, $loft-textGray, 500, left);
+}
+
+.courses__course__checkbox-container {
+  @include flex(center, flex-start);
+  background-color: $loft-checkboxContainerColor;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.courses__course__checkbox {
+  @include flex(center, center);
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  background-color: $loft-white;
+  border: $loft-checkboxBorder;
+  margin-right: 20px;
+}
+
+.courses__course__checkbox svg {
+  @include svg($loft-white, 50%, 50%);
+}
+
+.courses__course__checkbox-label {
+  @include text(1.56, 18px, $loft-textGray, 500, left);
+}
+
+.courses__course__checkbox-label::selection {
+  background-color: transparent;
+}
+
+.courses__course__checkbox-container input:checked + .courses__course__checkbox {
+  background-color: $loft-green;
+  border: none;
+}
+
+.courses__course__checkbox-container input:checked ~ .courses__course__checkbox-label {
+  color: $loft-green;
+}
+
+.courses__course_checked {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(140, 195, 75, .2);
+}
+
+.courses__course:hover .courses__course__title {
+  color: $loft-green;
+}
+
+.courses__course:hover .courses__course__content {
+  box-shadow: inset 0 5px 0 0 $loft-green;
+}
+
+.hover-when-checked:hover .courses__course__title {
+  color: $loft-textBlack;
+}
+
+.hover-when-checked:hover .courses__course__content {
+  box-shadow: none;
+}
+
+.courses__complete {
+  @include flex(center, center);
+  height: 200px;
+  width: 50%;
+}
+
+.courses__complete__svg-container {
+  @include flex(center, center);
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+  position: relative;
+  top: -5px;
+}
+
+.courses__complete__svg-container svg {
+  @include svg($loft-green)
+}
+
+.courses__complete__p-text {
+  @include text(1.5, 24px, $loft-green);
+}
+
+//footer
+
+footer {
+  @include flex(center, center);
+  width: 100%;
+  height: 72px;
+  background-color: $loft-textBlack;
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.footer__p-text {
+  @include text(1.5, 14.1px);
+  opacity: .5;
+  max-width: 530px;
+}
+
+
+
+.hide {
+  display: none;
+}

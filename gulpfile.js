@@ -55,10 +55,10 @@ gulp.task('fonts', function () {
 
 
 gulp.task('watch', function () {
-  gulp.watch('src/style.scss', ['scss']);
+  gulp.watch('src/**/*.scss', ['scss']);
   gulp.watch('src/index.pug', ['pug']);
   gulp.watch('static/images/*', ['images']);
   gulp.watch('static/fonts/*', ['fonts']);
 });
 
-gulp.task('default', ['connect', 'pug', 'scss', 'images', 'fonts']);
+gulp.task('default', ['connect', 'pug', 'scss', 'images', 'fonts', 'watch']);

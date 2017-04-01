@@ -3,6 +3,118 @@ head
   meta(charset="UTF-8")
   meta(name="viewport" content="width=device-width, initial-scale=1.0")
   link(rel="stylesheet" href="./style.css")
+  script(src="/app/jquery/jquery.js")
+  script(src="/app/index.js")
   title Loftschool - web advanced test
 body
+  header
+    div.header
+      div.header__user
+        img.header__user__avatar(src="/static/images/scrubs.png" alt="avatar")
+        div.header__user__info
+          span.header__user__name Быстров Борис Викторович
+          span.header__user__mail bystrov@gmail.com
+      div.header__btns-block
+        a.header__link(href="https://github.com/Ble3k/Fateev_test" target="_blank")
+          div.header__svg-container
+            include icons/github
+        a.header__link(href="https://www.skype.com" target="_blank")
+          div.header__svg-container
+            include icons/skype
+        a.header__link(href="https://vk.com/loftblog" target="_blank")
+          div.header__svg-container
+            include icons/vk
   main
+    div.about-block
+      h1.about-block__title О будущем ученике
+      p.about-block__p-text Ребятам из Loftschool будет полезно узнать немного обо мне
+      div.about-block__content
+        div.about-block__about-me
+          include ../static/images/hello.svg
+          div.about-block__about-me__container
+            h3.about-block__about-me__title Немного обо мне
+            p.about-block__about-me__p-text Я живу в Санкт-Петербурге (Россия). Мне 26 лет. Высшее образование - закончил НИУ ИТМО. Опыт в разработке 1 год. Уже окончил курсы в Академии Программирования, где не плохо научился верстать. Пока есть только один сайт, которым могу похвастаться:&nbsp
+              a.about-block__about-me__link(href="http://www.yandex.ru" target="_blank") www.yandex.ru
+        div.about-block__my-experience
+          include ../static/images/experience.svg
+          div.about-block__my-experience__container
+            h3.about-block__my-experience__title Мой опыт в разработке
+            p.about-block__my-experience__p-text В этом блоке я расскажу о себе, что я уже умею. Здесь я укажу другие курсы, которые до этого я уже проходил. Могу перечислить технологии, которыми уже умею пользоваться. К примеру: html5, css3, sass, jade, git и пр.
+    div.courses
+      h1.courses__title Курсы на loftblog
+      p.courses__p-text которые мне помогут в выполнении этого задания
+      div.courses__complete.hide
+        div.courses__complete__svg-container
+          include icons/checkmark
+        p.courses__complete__p-text Задание выполнено!
+      div.courses__content
+        -
+          var coursesArr = [
+            {
+              image: 'js',
+              title: 'Основы JavaScript',
+              description: 'Видеокурс о одном из самых популярных языков программирования - JavaScript. Изучая этот курс вы познаете этот прекрасный язык от самых основ.',
+              duration: '24 урока (6 часов 46 минут)'
+            },
+            {
+              image: 'jquery',
+              title: 'Основы JQUERY',
+              description: 'Видеокурс о одном из самых популярных языков программирования - JavaScript. Изучая этот курс вы познаете этот прекрасный язык от самых основ.',
+              duration: '11 уроков (2 часа 6 минут)'
+            },
+            {
+              image: 'base',
+              title: 'Базовые элементы страницы',
+              description: 'Видеокурс по верстке и программированию основных и популярных элементов сайтов. Посмотрев этот курс вы научитесь создавать табы, аккордеон, слайдшоу, слайдер и т.д.',
+              duration: '9 уроков (2 часа 7 минут)'
+            },
+            {
+              image: 'adaptive',
+              title: 'Создание адаптивных сайтов',
+              description: 'В этом курсе вы узнаете как создавать адаптивные сайты, что такое адаптивная верстка и дизайн.',
+              duration: '7 уроков (2 часа 11 минут)'
+            },
+            {
+              image: 'button',
+              title: 'Верстка адаптивной css галереи',
+              description: 'В этом видеокурсе вы изучите инструменты, техники и подходы для web-разработчика, которые помогут вам решать поставленные задачи более быстро и эффективно.',
+              duration: '6 уроков (1 час 9 минут)'
+            },
+            {
+              image: 'css',
+              title: 'Верстка адаптивной css галереи',
+              text: 'В этом курсе мы разберем как сверстать адаптивную css галерею. Также познакомимся с Flexbox.',
+              duration: '4 урока (50 минут)'
+            }
+          ]
+        each course, index in coursesArr
+          label.courses__course
+            div.courses__course__main-img
+              case course.image
+                when 'js'
+                  img(src="/static/images/js.png" alt= "course " + index)
+                when 'jquery'
+                  img(src="/static/images/jquery.png" alt= "course " + index)
+                when 'base'
+                  img(src="/static/images/base.png" alt= "course " + index)
+                when 'adaptive'
+                  img(src="/static/images/adaptive.png" alt= "course " + index)
+                when 'button'
+                  img(src="/static/images/button.png" alt= "course " + index)
+                when 'css'
+                  img(src="/static/images/css.png" alt= "course " + index)
+            div.courses__course__content
+              h4.courses__course__title= course.title
+              p.courses__course__description= course.description
+              div.courses__course__duration-container
+                div.courses__course__duration-svg-container
+                  include icons/clock
+                span.courses__course__duration= course.duration
+            div.courses__course__checkbox-container
+              input.input-checkbox.hide(type="checkbox")
+              div.courses__course__checkbox
+                include icons/checkmark
+              span.courses__course__checkbox-label Посмотрел
+              div.courses__course_checked
+  footer
+    p.footer__p-text А это футер, с текстом внутри. Он должен быть прибит к низу окна браузера, не зависимо от количества контента на странице и размера окна.

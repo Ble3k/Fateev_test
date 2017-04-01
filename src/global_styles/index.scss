@@ -16,4 +16,5 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: calc(100% - 90px - 72px); // 100% - header - footer
 }
