@@ -3,14 +3,14 @@ head
   meta(charset="UTF-8")
   meta(name="viewport" content="width=device-width, initial-scale=1.0")
   link(rel="stylesheet" href="./style.css")
-  script(src="/app/jquery/jquery.js")
-  script(src="/app/index.js")
+  script(src="./app/jquery/jquery.js")
+  script(src="./app/index.js")
   title Loftschool - web advanced test
 body
   header
     div.header
       div.header__user
-        img.header__user__avatar(src="/static/images/scrubs.png" alt="avatar")
+        img.header__user__avatar(src="./static/images/scrubs.png" alt="avatar")
         div.header__user__info
           span.header__user__name Быстров Борис Викторович
           span.header__user__mail bystrov@gmail.com
@@ -83,7 +83,7 @@ body
             {
               image: 'css',
               title: 'Верстка адаптивной css галереи',
-              text: 'В этом курсе мы разберем как сверстать адаптивную css галерею. Также познакомимся с Flexbox.',
+              description: 'В этом курсе мы разберем как сверстать адаптивную css галерею. Также познакомимся с Flexbox.',
               duration: '4 урока (50 минут)'
             }
           ]
@@ -92,17 +92,17 @@ body
             div.courses__course__main-img
               case course.image
                 when 'js'
-                  img(src="/static/images/js.png" alt= "course " + index)
+                  img(src="./static/images/js.png" alt= "course " + index)
                 when 'jquery'
-                  img(src="/static/images/jquery.png" alt= "course " + index)
+                  img(src="./static/images/jquery.png" alt= "course " + index)
                 when 'base'
-                  img(src="/static/images/base.png" alt= "course " + index)
+                  img(src="./static/images/base.png" alt= "course " + index)
                 when 'adaptive'
-                  img(src="/static/images/adaptive.png" alt= "course " + index)
+                  img(src="./static/images/adaptive.png" alt= "course " + index)
                 when 'button'
-                  img(src="/static/images/button.png" alt= "course " + index)
+                  img(src="./static/images/button.png" alt= "course " + index)
                 when 'css'
-                  img(src="/static/images/css.png" alt= "course " + index)
+                  img(src="./static/images/css.png" alt= "course " + index)
             div.courses__course__content
               h4.courses__course__title= course.title
               p.courses__course__description= course.description

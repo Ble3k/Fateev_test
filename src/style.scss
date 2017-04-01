@@ -120,7 +120,7 @@ header {
   @include flex(center, center, column, nowrap);
   padding: 80px;
   padding-bottom: 60px;
-  background: url('/static/images/gplaypattern.png') repeat;
+  background: url('./static/images/gplaypattern.png') repeat;
   flex-grow: 1;
 }
 
@@ -137,20 +137,15 @@ header {
 .courses__content {
   @include flex(flex-start, flex-start);
   width: 100%;
-  max-width: 940px;
+  max-width: 960px;
 }
 
 .courses__course {
   @include flex(stretch, flex-start, column, nowrap);
-  margin: 0 20px 20px 0;
+  margin: 10px;
   width: 300px;
   cursor: pointer;
   position: relative;
-}
-
-.courses__course:nth-child(3),
-.courses__course:nth-child(6) {
-  margin-right: 0;
 }
 
 .courses__course__main-img,
