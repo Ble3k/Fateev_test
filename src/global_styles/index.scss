@@ -1,0 +1,19 @@
+@import 'fonts';
+@import 'variables';
+@import 'reset';
+
+html, body {
+  height: 100%;
+  font-family: "FiraSansRegular", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
